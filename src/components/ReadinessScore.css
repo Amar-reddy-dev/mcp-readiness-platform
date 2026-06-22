@@ -1,0 +1,317 @@
+.readiness-score-container {
+  margin: 2rem 0;
+}
+
+.score-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 24px var(--shadow);
+  transition: all 0.3s;
+}
+
+.score-card.score-success {
+  border-color: #d4d4d4;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(212, 212, 212, 0.05) 100%);
+}
+
+.score-card.score-warning {
+  border-color: #a3a3a3;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(163, 163, 163, 0.05) 100%);
+}
+
+.score-card.score-danger {
+  border-color: #737373;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(115, 115, 115, 0.05) 100%);
+}
+
+.score-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.score-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.score-success .score-icon {
+  color: #d4d4d4;
+  background: rgba(212, 212, 212, 0.1);
+}
+
+.score-warning .score-icon {
+  color: #a3a3a3;
+  background: rgba(163, 163, 163, 0.1);
+}
+
+.score-danger .score-icon {
+  color: #737373;
+  background: rgba(115, 115, 115, 0.1);
+}
+
+.score-info h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.score-label {
+  margin: 0.25rem 0 0 0;
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.score-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.score-number {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 0%, #d4d4d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.score-success .score-number {
+  background: linear-gradient(135deg, #ffffff 0%, #d4d4d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.score-warning .score-number {
+  background: linear-gradient(135deg, #d4d4d4 0%, #a3a3a3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.score-danger .score-number {
+  background: linear-gradient(135deg, #a3a3a3 0%, #737373 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.score-max {
+  font-size: 2rem;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
+}
+
+.score-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 1s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.score-fill-success {
+  background: linear-gradient(90deg, #ffffff 0%, #d4d4d4 100%);
+}
+
+.score-fill-warning {
+  background: linear-gradient(90deg, #d4d4d4 0%, #a3a3a3 100%);
+}
+
+.score-fill-danger {
+  background: linear-gradient(90deg, #a3a3a3 0%, #737373 100%);
+}
+
+.simulation-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.stat-icon.success {
+  background: rgba(212, 212, 212, 0.1);
+  color: #d4d4d4;
+}
+
+.stat-icon.danger {
+  background: rgba(115, 115, 115, 0.1);
+  color: #737373;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.stat-percentage {
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.stat-percentage.success {
+  background: rgba(212, 212, 212, 0.1);
+  color: #d4d4d4;
+}
+
+.stat-percentage.danger {
+  background: rgba(115, 115, 115, 0.1);
+  color: #737373;
+}
+
+.confidence-indicator {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.confidence-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.confidence-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.confidence-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.confidence-badge.badge-success {
+  background: rgba(212, 212, 212, 0.1);
+  color: #d4d4d4;
+  border: 1px solid rgba(212, 212, 212, 0.2);
+}
+
+.confidence-badge.badge-warning {
+  background: rgba(163, 163, 163, 0.1);
+  color: #a3a3a3;
+  border: 1px solid rgba(163, 163, 163, 0.2);
+}
+
+.confidence-badge.badge-danger {
+  background: rgba(115, 115, 115, 0.1);
+  color: #737373;
+  border: 1px solid rgba(115, 115, 115, 0.2);
+}
+
+.confidence-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .score-card {
+    padding: 1.5rem;
+  }
+
+  .score-number {
+    font-size: 3.5rem;
+  }
+
+  .score-max {
+    font-size: 1.5rem;
+  }
+
+  .simulation-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Made with Bob */

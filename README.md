@@ -60,17 +60,24 @@ Then we provide:
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 19 + Vite
+- **MCP Server**: Model Context Protocol SDK
+- **LLM**: IBM watsonx.ai (Granite models)
 - **Styling**: Custom CSS with modern design system
 - **Icons**: Lucide React
 - **Charts**: Recharts (for future enhancements)
-- **Simulation**: Custom JavaScript engine
+- **Simulation**: Custom JavaScript engine with MCP tools
 
 ## 📦 Installation
+
+### Frontend Application
 
 ```bash
 # Clone the repository
 git clone <repository-url>
 cd mcp-readiness-platform
+
+# Navigate to frontend
+cd frontend
 
 # Install dependencies
 npm install
@@ -78,6 +85,26 @@ npm install
 # Start development server
 npm run dev
 ```
+
+### MCP Server (Optional - for LLM-powered analysis)
+
+```bash
+# Navigate to backend directory
+cd backend
+
+# Install dependencies
+npm install
+
+# Configure IBM watsonx credentials (optional)
+# Create .env file with:
+# IBM_WATSONX_API_KEY=your_api_key
+# IBM_WATSONX_PROJECT_ID=your_project_id
+
+# Start MCP server
+npm start
+```
+
+See [backend/README.md](backend/README.md) for detailed MCP server documentation.
 
 ## 🎮 Usage
 
@@ -155,18 +182,42 @@ Get specific, actionable fixes:
 ## 🏗️ Architecture
 
 ```
-src/
-├── components/
-│   ├── ConfigUpload.jsx       # File upload & sample selector
-│   ├── ReadinessScore.jsx     # Score display & stats
-│   ├── RiskCards.jsx          # Risk analysis cards
-│   └── RecommendationsPanel.jsx # Actionable recommendations
-├── data/
-│   └── sampleConfigs.js       # Sample configurations
-├── utils/
-│   └── simulationEngine.js    # Core simulation logic
-└── App.jsx                    # Main application
+mcp-readiness-platform/
+├── frontend/                  # React + Vite frontend
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ConfigUpload.jsx
+│   │   │   ├── ReadinessScore.jsx
+│   │   │   ├── RiskCards.jsx
+│   │   │   └── RecommendationsPanel.jsx
+│   │   ├── data/
+│   │   │   └── sampleConfigs.js
+│   │   ├── utils/
+│   │   │   ├── validationSchema.js
+│   │   │   ├── scoringRules.js
+│   │   │   ├── riskDetection.js
+│   │   │   └── simulationEngine.js
+│   │   └── App.jsx
+│   ├── public/
+│   ├── index.html
+│   └── vite.config.js
+│
+├── backend/                   # MCP server
+│   ├── server.js
+│   ├── tools/
+│   │   ├── simulateTokenExpiry.js
+│   │   ├── simulateGatewayFailure.js
+│   │   ├── simulateToolTimeout.js
+│   │   ├── simulateInvalidAudience.js
+│   │   ├── simulateObservabilityGap.js
+│   │   └── generateGoNoGoDecision.js
+│   └── integrations/
+│       └── ibmWatsonxOrchestrate.js
+│
+└── MCP_ARCHITECTURE.md        # Detailed architecture diagram
 ```
+
+See [MCP_ARCHITECTURE.md](MCP_ARCHITECTURE.md) for detailed system architecture.
 
 ## 🎨 Design System
 
@@ -176,15 +227,32 @@ src/
 - **Danger**: Red (#ef4444)
 - **Dark Theme**: Slate backgrounds
 
+## 🆕 New Features (MCP Server)
+
+### MCP Simulation Tools
+- ✅ **simulate_token_expiry** - Tests OAuth token handling
+- ✅ **simulate_gateway_failure** - Tests network resilience
+- ✅ **simulate_tool_timeout** - Tests timeout handling
+- ✅ **simulate_invalid_audience** - Tests token validation
+- ✅ **simulate_observability_gap** - Tests monitoring coverage
+- ✅ **generate_go_no_go_decision** - LLM-powered deployment decisions
+
+### IBM watsonx Integration
+- ✅ **LLM-Powered Analysis** - Uses IBM Granite models
+- ✅ **Intelligent Recommendations** - Context-aware suggestions
+- ✅ **Pattern Recognition** - Identifies common failure patterns
+- ✅ **Confidence Scoring** - Reliability assessment
+
 ## 🚧 Future Enhancements
 
-- [ ] Real-time MCP server testing
+- [ ] Real-time MCP server testing via web UI
 - [ ] Historical analysis & trends
 - [ ] Team collaboration features
 - [ ] CI/CD integration
 - [ ] Custom scenario creation
 - [ ] Export reports (PDF, JSON)
 - [ ] API for programmatic access
+- [ ] Production IBM watsonx API integration
 
 ## 🤝 Contributing
 

@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "mcp-readiness-platform": {
+      "command": "node",
+      "args": [
+        "/Users/amareswar/Desktop/mcp-readiness-platform/backend/server.js"
+      ],
+      "env": {
+        "IBM_WATSONX_API_KEY": "${IBM_WATSONX_API_KEY}",
+        "IBM_WATSONX_PROJECT_ID": "${IBM_WATSONX_PROJECT_ID}",
+        "IBM_WATSONX_REGION": "us-south",
+        "IBM_WATSONX_MODEL": "ibm/granite-13b-chat-v2"
+      },
+      "description": "MCP Readiness Platform - Simulation and Validation Tools with IBM watsonx",
+      "capabilities": {
+        "tools": true,
+        "resources": false,
+        "prompts": false
+      }
+    }
+  }
+}

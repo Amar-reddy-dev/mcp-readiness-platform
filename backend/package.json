@@ -1,0 +1,72 @@
+{
+  "name": "mcp-readiness-platform-server",
+  "version": "1.0.0",
+  "description": "MCP Server for Readiness Platform - Simulation and Validation Tools",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "validation",
+    "simulation",
+    "ibm-watsonx",
+    "readiness"
+  ],
+  "author": "MCP Readiness Platform Team",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "mcp": {
+    "server": {
+      "name": "mcp-readiness-platform",
+      "version": "1.0.0",
+      "description": "MCP Readiness Platform - Simulation and Validation Tools",
+      "capabilities": {
+        "tools": true,
+        "resources": false,
+        "prompts": false
+      }
+    },
+    "tools": [
+      {
+        "name": "simulate_token_expiry",
+        "description": "Simulates OAuth token expiration scenarios"
+      },
+      {
+        "name": "simulate_gateway_failure",
+        "description": "Simulates gateway unavailability and network failures"
+      },
+      {
+        "name": "simulate_tool_timeout",
+        "description": "Simulates tool execution timeouts"
+      },
+      {
+        "name": "simulate_invalid_audience",
+        "description": "Simulates invalid OAuth audience scenarios"
+      },
+      {
+        "name": "simulate_observability_gap",
+        "description": "Simulates observability gaps and monitoring blind spots"
+      },
+      {
+        "name": "generate_go_no_go_decision",
+        "description": "Generates comprehensive go/no-go deployment decision"
+      }
+    ]
+  }
+}
